@@ -4,6 +4,12 @@ This is a demo application built with the [Laravel WebSockets](https://github.co
 
 Be sure to check out the [official documentation](https://docs.beyondco.de/laravel-websockets/).
 
+## Usage
+
+1. Clone this repository
+2. `composer install`
+3. `php artisan migrate`
+4. `php artisan websockets:serve`
 
 ## Credits
 
