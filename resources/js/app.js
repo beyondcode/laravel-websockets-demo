@@ -17,10 +17,8 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,5 +27,62 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+        messages: [],
+        users: [],
+    },
+
+    created() {
+        this.fetchMessages();
+
+        Echo.join('chat')
+            .here(users => {
+                this.users = users;
+            })
+            .joining(user => {
+                this.users.push(user);
+            })
+            .leaving(user => {
+                this.users = this.users.filter(u => u.id !== user.id);
+            })
+            .listenForWhisper('typing', ({id, name}) => {
+                this.users.forEach((user, index) => {
+                    if (user.id === id) {
+                        user.typing = true;
+                        this.$set(this.users, index, user);
+                    }
+                });
+            })
+            .listen('MessageSent', (e) => {
+                this.messages.push({
+                    message: e.message.message,
+                    user: e.user
+                });
+
+                this.users.forEach((user, index) => {
+                    if (user.id === e.user.id) {
+                        user.typing = false;
+                        this.$set(this.users, index, user);
+                    }
+                });
+            });
+    },
+
+    methods: {
+        fetchMessages() {
+            axios.get('/messages').then(response => {
+                this.messages = response.data;
+            });
+        },
+
+        addMessage(message) {
+            this.messages.push(message);
+
+            axios.post('/messages', message).then(response => {
+                console.log(response.data);
+            });
+        }
+    }
 });

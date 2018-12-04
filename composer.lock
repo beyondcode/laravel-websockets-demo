@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:beyondcode/laravel-websockets.git",
-                "reference": "286629fd98011763bb41ee6e47a8a82e9d1f5e90"
+                "reference": "cc8f8a8168104e2675b9fefde5f718a63958d2c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beyondcode/laravel-websockets/zipball/286629fd98011763bb41ee6e47a8a82e9d1f5e90",
-                "reference": "286629fd98011763bb41ee6e47a8a82e9d1f5e90",
+                "url": "https://api.github.com/repos/beyondcode/laravel-websockets/zipball/cc8f8a8168104e2675b9fefde5f718a63958d2c4",
+                "reference": "cc8f8a8168104e2675b9fefde5f718a63958d2c4",
                 "shasum": ""
             },
             "require": {
@@ -36,7 +36,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "^1.2",
-                "orchestra/testbench": "~3.5",
+                "orchestra/testbench": "3.7.*",
                 "phpunit/phpunit": "^7.0"
             },
             "type": "library",
@@ -85,6 +85,7 @@
                     "role": "Developer"
                 }
             ],
+            "description": "An easy to use WebSocket server",
             "homepage": "https://github.com/beyondcode/laravel-websockets",
             "keywords": [
                 "beyondcode",
@@ -94,7 +95,7 @@
                 "source": "https://github.com/beyondcode/laravel-websockets/tree/master",
                 "issues": "https://github.com/beyondcode/laravel-websockets/issues"
             },
-            "time": "2018-12-04T16:25:11+00:00"
+            "time": "2018-12-04T20:07:46+00:00"
         },
         {
             "name": "cboden/ratchet",
@@ -614,16 +615,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "53662d6688033a5eccde987bdd5a4a98ebe2d952"
+                "reference": "9b809aa5fcc7c6bddf35bea6cec77e86b8485a5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/53662d6688033a5eccde987bdd5a4a98ebe2d952",
-                "reference": "53662d6688033a5eccde987bdd5a4a98ebe2d952",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9b809aa5fcc7c6bddf35bea6cec77e86b8485a5c",
+                "reference": "9b809aa5fcc7c6bddf35bea6cec77e86b8485a5c",
                 "shasum": ""
             },
             "require": {
@@ -677,7 +678,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-12-03T05:07:51+00:00"
+            "time": "2018-12-04T18:48:06+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
