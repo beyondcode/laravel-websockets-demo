@@ -19,14 +19,14 @@ class MessageSent implements ShouldBroadcast
     /**
      * User that sent the message
      *
-     * @var User
+     * @var \App\User
      */
     public $user;
 
     /**
      * Message details
      *
-     * @var Message
+     * @var \App\Message
      */
     public $message;
 
@@ -38,6 +38,7 @@ class MessageSent implements ShouldBroadcast
     public function __construct(User $user, Message $message)
     {
         $this->user = $user;
+
         $this->message = $message;
     }
 
