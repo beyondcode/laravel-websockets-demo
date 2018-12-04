@@ -55,14 +55,14 @@ const app = new Vue({
                     }
                 });
             })
-            .listen('MessageSent', (e) => {
+            .listen('MessageSent', (event) => {
                 this.messages.push({
-                    message: e.message.message,
-                    user: e.user
+                    message: event.message.message,
+                    user: event.user
                 });
 
                 this.users.forEach((user, index) => {
-                    if (user.id === e.user.id) {
+                    if (user.id === event.user.id) {
                         user.typing = false;
                         this.$set(this.users, index, user);
                     }
