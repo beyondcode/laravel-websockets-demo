@@ -9,7 +9,8 @@ Be sure to check out the [official documentation](https://docs.beyondco.de/larav
 1. Clone this repository
 2. `composer install`
 3. `php artisan migrate`
-4. `php artisan websockets:serve`
+4. `php artisan key:generate`
+5. `php artisan websockets:serve`
 
 ## Credits
 
