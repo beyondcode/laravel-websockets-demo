@@ -67,6 +67,29 @@
                     </form>
                 </div>
             </div>
+
+            <div class="mt-4">
+                <h5>Example Accounts</h5>
+                <div class="mb-3">
+                    <div><strong>Email:</strong> user@user.com</div>
+                    <div><strong>Password: </strong> password</div>
+                </div>
+
+                <div class="mb-3">
+                    <div><strong>Email:</strong> andre@andre.com</div>
+                    <div><strong>Password: </strong> password</div>
+                </div>
+
+                <div class="mb-3">
+                    <div><strong>Email:</strong> tony@avengers.com</div>
+                    <div><strong>Password: </strong> password</div>
+                </div>
+
+                <div class="mb-3">
+                    <div><strong>Email:</strong> thor@avengers.com</div>
+                    <div><strong>Password: </strong> password</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
