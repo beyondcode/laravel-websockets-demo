@@ -69,7 +69,8 @@ return [
         /*
          * Passphrase with which your local_cert file was encoded.
          */
-        'passphrase' => null
+        'passphrase' => null,
+        'verify_peer' => false
     ],
 
     'statistics' => [
