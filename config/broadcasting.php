@@ -39,9 +39,14 @@ return [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'encrypted' => false,
                 'host' => '127.0.0.1',
-                'port' => 6002,
+                'port' => env('LARAVEL_WEBSOCKETS_PORT', 6001),
                 'scheme' => 'http'
             ],
+        ],
+        
+        'ably' => [
+            'driver' => 'ably',
+            'key' => env('ABLY_KEY'),
         ],
 
         'redis' => [

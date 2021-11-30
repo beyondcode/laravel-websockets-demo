@@ -2,14 +2,10 @@
 
 namespace App\Events;
 
-use App\User;
-use App\Message;
-use Illuminate\Broadcasting\Channel;
+use App\Models\{User,Message};
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\{Channel,PrivateChannel,PresenceChannel,InteractsWithSockets};
 use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class MessageSent implements ShouldBroadcast
@@ -19,14 +15,14 @@ class MessageSent implements ShouldBroadcast
     /**
      * User that sent the message
      *
-     * @var \App\User
+     * @var \App\Models\User
      */
     public $user;
 
     /**
      * Message details
      *
-     * @var \App\Message
+     * @var \App\Models\Message
      */
     public $message;
 

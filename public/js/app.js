@@ -14191,10 +14191,10 @@ window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo__["a" /* default */](
   broadcaster: 'pusher',
   key: "websocketkey",
   wsHost: window.location.hostname,
-  wsPort: 6002,
-  wssPort: 6002,
-  //disableStats: true,
-  enabledTransports: ['ws'],
+  wsPort: 6001,
+  wssPort: 6001,
+  disableStats: true,
+  enabledTransports: ['ws','wss'],
   forceTLS: false,
 });
 

@@ -13,7 +13,7 @@ return [
 
     'dashboard' => [
 
-        'port' => env('LARAVEL_WEBSOCKETS_PORT', 6002),
+        'port' => env('LARAVEL_WEBSOCKETS_PORT', 6001),
 
         'domain' => env('LARAVEL_WEBSOCKETS_DOMAIN'),
 
