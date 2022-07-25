@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ChatsController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,6 @@
 
 Auth::routes();
 
-Route::get('/', 'ChatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
+Route::get( '/',            [ChatsController::class, 'index']               );
+Route::get( 'messages',     [ChatsController::class, 'fetchMessages']       );
+Route::post('messages',     [ChatsController::class, 'sendMessage']         );

@@ -13,8 +13,8 @@
                     </div>
                     <div class="card-footer">
                         <chat-form
-                                @messagesent="addMessage"
-                                :user="{{ auth()->user() }}"
+                            @messagesent="addMessage"
+                            :user="{{ auth()->user() }}"
                         ></chat-form>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
             <div class="col-md-4">
                 <ul class="list-group">
                     <li class="list-group-item" v-for="user in users">
-                        @{{ user.name }} <span v-if="user.typing" class="badge badge-primary">typing...</span>
+                        @{{ user.name }} <span v-if="user.typing" class="badge bg-primary">typing...</span>
                     </li>
                 </ul>
             </div>

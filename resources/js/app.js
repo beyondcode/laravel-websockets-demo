@@ -1,37 +1,17 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
-window.Vue = require('vue');
+import { createApp } from 'vue';
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import ChatForm from './components/ChatForm'
+import ChatMessages from './components/ChatMessages'
 
-const files = require.context('./', true, /\.vue$/i)
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
+const app = createApp({
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-const app = new Vue({
-    el: '#app',
-
-    data: {
-        messages: [],
-        users: [],
+    data() {
+        return {
+            messages: [],
+            users: [],
+        }
     },
 
     created() {
@@ -51,7 +31,7 @@ const app = new Vue({
                 this.users.forEach((user, index) => {
                     if (user.id === id) {
                         user.typing = true;
-                        this.$set(this.users, index, user);
+                        this.users[index] = user;
                     }
                 });
             })
@@ -64,13 +44,23 @@ const app = new Vue({
                 this.users.forEach((user, index) => {
                     if (user.id === event.user.id) {
                         user.typing = false;
-                        this.$set(this.users, index, user);
+                        this.users[index] = user;
                     }
                 });
             });
     },
 
+    watch: {
+        messages: {
+            deep: true,
+            handler() {
+                this.$nextTick(() => this.scrollChatListToBottom());
+            },
+        },
+    },
+
     methods: {
+
         fetchMessages() {
             axios.get('/messages').then(response => {
                 this.messages = response.data;
@@ -79,10 +69,21 @@ const app = new Vue({
 
         addMessage(message) {
             this.messages.push(message);
-
             axios.post('/messages', message).then(response => {
                 console.log(response.data);
             });
-        }
+        },
+
+        scrollChatListToBottom() {
+            const latest_message = document.querySelector('.chats .card-body li:last-of-type');
+            if (latest_message) {
+                latest_message.scrollIntoView({behavior: 'smooth'});
+            }
+        },
     }
 });
+
+app.component('chat-form', ChatForm);
+app.component('chat-messages', ChatMessages);
+
+app.mount('#app');

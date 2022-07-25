@@ -8,6 +8,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+[v-cloak]{
+    display: none !important;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -33,6 +37,7 @@
   .chats .card-body {
     overflow-y: scroll;
     height: 80vh;
+    max-height: 300px;
   }
 
   ::-webkit-scrollbar-track {
