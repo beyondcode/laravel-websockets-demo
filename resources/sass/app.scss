@@ -37,6 +37,7 @@
   .chats .card-body {
     overflow-y: scroll;
     height: 80vh;
+    max-height: 300px;
   }
 
   ::-webkit-scrollbar-track {

@@ -13,8 +13,8 @@
                     </div>
                     <div class="card-footer">
                         <chat-form
-                                @messagesent="addMessage"
-                                :user="{{ auth()->user() }}"
+                            @messagesent="addMessage"
+                            :user="{{ auth()->user() }}"
                         ></chat-form>
                     </div>
                 </div>

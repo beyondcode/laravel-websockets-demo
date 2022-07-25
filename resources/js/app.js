@@ -50,7 +50,17 @@ const app = createApp({
             });
     },
 
+    watch: {
+        messages: {
+            deep: true,
+            handler() {
+                this.$nextTick(() => this.scrollChatListToBottom());
+            },
+        },
+    },
+
     methods: {
+
         fetchMessages() {
             axios.get('/messages').then(response => {
                 this.messages = response.data;
@@ -59,13 +69,18 @@ const app = createApp({
 
         addMessage(message) {
             this.messages.push(message);
-
             axios.post('/messages', message).then(response => {
                 console.log(response.data);
             });
-        }
-    }
+        },
 
+        scrollChatListToBottom() {
+            const latest_message = document.querySelector('.chats .card-body li:last-of-type');
+            if (latest_message) {
+                latest_message.scrollIntoView({behavior: 'smooth'});
+            }
+        },
+    }
 });
 
 app.component('chat-form', ChatForm);
